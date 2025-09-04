@@ -6,23 +6,27 @@
     <title>Admin</title>
     <!-- Netlify Identity (вход) -->
     <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
-    <!-- Netlify CMS -->
-    <script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms.js"></script>
+    <!-- Decap (бывш. Netlify) CMS -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
   <body>
     <div id="nc-root"></div>
     <script>
-      // Инициализируем Identity-виджет (чтобы показать форму входа)
-      if (window.netlifyIdentity) { window.netlifyIdentity.init(); }
+      // Запускаем Identity, чтобы была форма логина
+      if (window.netlifyIdentity) window.netlifyIdentity.init();
 
-      // Явно инициализируем CMS и указываем путь к конфигу
-      window.CMS_MANUAL_INIT = true;
-      CMS.init({ config: '/admin/config.yml' });
-
-      // Если пользователь залогинился — остаёмся на /admin/
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("login", () => { window.location.reload(); });
-      }
+      // Ждём появления глобального CMS и только потом инициализируем
+      (function startCMS(){
+        if (window.CMS) {
+          window.CMS_MANUAL_INIT = true;
+          CMS.init({ config: '/admin/config.yml' });
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on('login', () => window.location.reload());
+          }
+        } else {
+          setTimeout(startCMS, 50);
+        }
+      })();
     </script>
   </body>
 </html>
