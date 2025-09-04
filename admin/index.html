@@ -4,27 +4,42 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Admin</title>
-    <!-- Netlify Identity -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- Decap CMS -->
-    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
+
+    <!-- Identity для входа -->
+    <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+    <!-- Decap CMS (бывш. Netlify CMS). Важно: defer! -->
+    <script defer src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </head>
   <body>
-    <!-- Контейнер, в котором CMS будет отрисована -->
+    <!-- Контейнер, куда CMS себя отрисует -->
     <div id="nc-root"></div>
 
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.reload();
-            });
-          }
-        });
+      // Ждём готовности DOM и загрузки скрипта CMS
+      function startCMS() {
+        var cms = window.CMS || window.DecapCMS;
+        if (!document.body || !cms) {
+          return setTimeout(startCMS, 50);
+        }
+
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on('init', user => {
+            if (!user) {
+              window.netlifyIdentity.on('login', () => document.location.reload());
+            }
+          });
+        }
+
+        cms.init({ config: '/admin/config.yml' });
       }
-      // Инициализация CMS
-      CMS.init({ config: '/admin/config.yml' });
+
+      // DOM уже мог быть готов — но вызовем безопасно
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', startCMS);
+      } else {
+        startCMS();
+      }
     </script>
   </body>
 </html>
