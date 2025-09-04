@@ -1,0 +1,12 @@
+{
+  "brand": "Fine In Detail",
+  "tagline": "Кожевенные изделия ручной работы",
+  "nav": ["Главная", "Каталог", "Контакты"],
+  "hero_points": ["Премиальная кожа", "Ручная работа", "Индивидуальные заказы"],
+  "contact": { "whatsapp": "+39 000 000 0000", "email": "hello@example.com", "address": "Via Roma, 42, Milano" },
+  "about_title": "О нас",
+  "about_body": "Мы создаём долговечные изделия из кожи.",
+  "reviews_title": "Отзывы",
+  "contact_title": "Контакты",
+  "footer": "© Fine In Detail"
+}
