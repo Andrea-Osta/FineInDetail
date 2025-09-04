@@ -1,23 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Content Manager</title>
 
-    <!-- Включаем ручной старт CMS до её загрузки -->
-    <script>window.CMS_MANUAL_INIT = true;</script>
-
-    <!-- Netlify Identity (виджет логина) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- Netlify CMS (обязательно ПЕРЕД вызовом CMS.init) -->
-    <script src="https://unpkg.com/netlify-cms-app@^2.0.0/dist/netlify-cms.js"></script>
+    <!-- Подключаем библиотеку CMS -->
+    <script src="https://unpkg.com/netlify-cms-app@^2.15.0/dist/netlify-cms.js"></script>
   </head>
   <body>
-    <!-- Стартуем CMS после загрузки бандла -->
+    <!-- CMS сама отрисуется внутрь body -->
     <script>
-      CMS.init();
+      NetlifyCms.init();
     </script>
   </body>
 </html>
