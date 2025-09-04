@@ -1,0 +1,12 @@
+[
+  {
+    "id": "belt-001",
+    "title": "Classic Belt",
+    "price": 79,
+    "currency": "EUR",
+    "image": "/assets/uploads/belt.jpg",
+    "color": "brown",
+    "stock": "in_stock",
+    "description": "Классический ремень из цельной кожи."
+  }
+]
