@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Fine In Detail</title>
+  <link rel="stylesheet" href="/styles.css"/>
+  <style>
+    /* На случай, если styles.css не применится, базовый fallback */
+    body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:#0b0b0c;color:#eaeaec}
+    .container{max-width:980px;margin:0 auto;padding:24px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;border:1px solid #3b82f6}
+    .btn.primary{background:#3b82f6;color:#fff}
+    header{display:flex;justify-content:space-between;align-items:center}
+    nav a{margin-right:12px;color:#eaeaec;text-decoration:none;opacity:.9}
+    .hero{padding:32px 0}
+    .card{background:#121217;border:1px solid #23232a;border-radius:16px;padding:16px}
+    footer{border-top:1px solid #23232a;margin-top:32px;padding:16px 0;opacity:.8}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <div><strong>Fine In Detail</strong></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contacts</a>
+      <a href="/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Handcrafted leather goods built to last</h1>
+      <p>Добро пожаловать! Это стартовая страница. Админ-панель доступна по ссылке «Admin» вверху.</p>
+      <p><a class="btn primary" href="/admin/">Open Admin</a></p>
+    </section>
+
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>Ателье кожевенных изделий. Красивая, аккуратная сборка без оплаты и без бэкенда.</p>
+    </section>
+
+    <section id="contact" class="card" style="margin-top:16px;">
+      <h2>Contacts</h2>
+      <p>WhatsApp: +49 15510 253475<br>Email: hello@example.com<br>Address: Via Roma, 42, Milano, Italy</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© Fine In Detail</div>
+  </footer>
+</body>
+</html>
