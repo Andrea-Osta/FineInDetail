@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Admin</title>
 
-    <!-- Виджет Netlify Identity для логина -->
+    <!-- Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-    <!-- Зафиксирована стабильная версия Decap CMS -->
+    <!-- Зафиксированная версия Decap CMS -->
     <script src="https://unpkg.com/decap-cms@3.1.9/dist/decap-cms.js"></script>
   </head>
-  <body></body>
+  <body>
+    <!-- Явный корневой контейнер для CMS, чтобы обойти баг с appendChild -->
+    <div id="nc-root"></div>
+  </body>
 </html>
