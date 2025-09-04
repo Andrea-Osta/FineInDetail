@@ -2,31 +2,29 @@
 <html>
   <head>
     <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Admin</title>
-    <!-- Netlify Identity (вход) -->
-    <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
-    <!-- Decap (бывш. Netlify) CMS -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <!-- Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- Decap CMS -->
+    <script src="https://unpkg.com/decap-cms@latest/dist/decap-cms.js"></script>
   </head>
   <body>
+    <!-- Контейнер, в котором CMS будет отрисована -->
     <div id="nc-root"></div>
-    <script>
-      // Запускаем Identity, чтобы была форма логина
-      if (window.netlifyIdentity) window.netlifyIdentity.init();
 
-      // Ждём появления глобального CMS и только потом инициализируем
-      (function startCMS(){
-        if (window.CMS) {
-          window.CMS_MANUAL_INIT = true;
-          CMS.init({ config: '/admin/config.yml' });
-          if (window.netlifyIdentity) {
-            window.netlifyIdentity.on('login', () => window.location.reload());
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.reload();
+            });
           }
-        } else {
-          setTimeout(startCMS, 50);
-        }
-      })();
+        });
+      }
+      // Инициализация CMS
+      CMS.init({ config: '/admin/config.yml' });
     </script>
   </body>
 </html>
