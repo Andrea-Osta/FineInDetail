@@ -1,87 +1,12 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Leatherwork Atelier</title>
-  <link rel="stylesheet" href="/styles.css"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script defer src="/script.js"></script>
-  <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
-</head>
-<body>
-  <header class="site-header container">
-    <div class="brand"><span id="brand">Leatherwork Atelier</span></div>
-    <nav class="main-nav">
-      <a href="#collection" data-i="nav0">Collection</a>
-      <a href="#about" data-i="nav1">About</a>
-      <a href="#reviews" data-i="nav2">Reviews</a>
-      <a href="#contact" data-i="nav3">Contact</a>
-    </nav>
-    <div class="lang">
-      <button class="lang-btn" data-lang="en">EN</button>
-      <button class="lang-btn" data-lang="it">IT</button>
-      <button class="lang-btn" data-lang="ru">RU</button>
-      <a class="admin-link" href="/admin/" title="Admin">Admin</a>
-    </div>
-  </header>
-
-  <section class="hero container">
-    <h1 id="tagline">Handcrafted leather goods built to last.</h1>
-    <ul class="hero-points">
-      <li data-point="0"></li>
-      <li data-point="1"></li>
-      <li data-point="2"></li>
-    </ul>
-    <div class="cta">
-      <a href="#collection" class="btn primary" id="cta_primary">Explore Collection</a>
-      <a href="#contact" class="btn ghost" id="cta_secondary">Contact Us</a>
-    </div>
-  </section>
-
-  <section id="collection" class="container">
-    <h2>Collection</h2>
-    <div id="grid" class="grid"></div>
-  </section>
-
-  <section id="about" class="container split">
-    <div>
-      <h2 id="about_title">About the Atelier</h2>
-      <p id="about_body">We craft durable, elegant leather goods in small batches using premium hides and solid brass hardware. Each item is stitched and finished by hand.</p>
-    </div>
-    <div class="card photo-card"></div>
-  </section>
-
-  <section id="reviews" class="container">
-    <h2 id="reviews_title">What clients say</h2>
-    <div id="reviews_list" class="reviews"></div>
-  </section>
-
-  <section id="contact" class="container">
-    <h2 id="contact_title">Get in touch</h2>
-    <div class="contact-wrap">
-      <div class="contact-cards">
-        <div class="card"><strong>WhatsApp:</strong> <span id="wa">+49 15510 253475</span></div>
-        <div class="card"><strong>Email:</strong> <span id="em">hello@example.com</span></div>
-        <div class="card"><strong>Address:</strong> <span id="ad">Via Roma, 42, Milano, Italy</span></div>
-      </div>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
-        <label>Name <input type="text" name="name" required></label>
-        <label>Email <input type="email" name="email" required></label>
-        <label>Message <textarea name="message" required></textarea></label>
-        <button type="submit" class="btn primary">Send</button>
-      </form>
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p id="footer">© Leatherwork Atelier</p>
-    </div>
-  </footer>
-</body>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Admin</title>
+    <script src="https://unpkg.com/netlify-identity-widget@1.9.2/build/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/netlify-cms-app@2.15.72/dist/netlify-cms.js"></script>
+  </head>
+  <body>
+  </body>
 </html>
